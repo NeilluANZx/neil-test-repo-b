@@ -7,6 +7,8 @@ jobs:
         uses: NeilluANZx/neil-test-repo-a/.github/workflows/test.yml@main
 
     second-job:
+        needs: test-job
+        runs-on: ubuntu-latest
         steps:
             - name: Test step
               run: echo "Hello world"
