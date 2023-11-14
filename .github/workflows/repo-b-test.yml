@@ -7,10 +7,10 @@ jobs:
         uses: NeilluANZx/neil-test-repo-a/.github/workflows/test.yml@main
 
     second-job:
-        needs: test-job
         steps:
-            - name: "second"
-            run: echo "1234"
+            - name: Test step
+              run: echo "Hello world"
+
     third-job:
         needs: second-job
         uses: NeilluANZx/neil-test-repo-a/.github/workflows/test.yml@main
