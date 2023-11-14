@@ -5,6 +5,12 @@ on:
 jobs:
     test-job:
         uses: NeilluANZx/neil-test-repo-a/.github/workflows/test.yml@main
-    
+
     second-job:
+        needs: test-job
+        steps:
+            - name: "second"
+            run: echo "1234"
+    third-job:
+        needs: second-job
         uses: NeilluANZx/neil-test-repo-a/.github/workflows/test.yml@main
