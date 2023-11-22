@@ -4,15 +4,12 @@ on:
 
 jobs:
     test-job:
-        uses: NeilluANZx/neil-test-repo-a/.github/workflows/test.yml@main
-
-    second-job:
-        needs: test-job
         runs-on: ubuntu-latest
         steps:
-            - name: Test step
-              run: echo "Hello world"
-
-    third-job:
-        needs: second-job
-        uses: NeilluANZx/neil-test-repo-a/.github/workflows/test.yml@main
+            - uses: actions/checkout@v4
+            - name: checkout composite
+              uses: actions/checkout@v4
+              with:
+                repository: NeilluANZx/neil-test-repo-a
+                path: ./.actions
+            - uses: ./.actions/composite

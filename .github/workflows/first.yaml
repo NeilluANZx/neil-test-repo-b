@@ -1,0 +1,10 @@
+name: first test workflow
+on:
+    push:
+
+jobs:
+    test-job:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: NeilluANZx/neil-test-repo-a/composite@main
